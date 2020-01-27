@@ -18,7 +18,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" +
+        return "Article " +
                 "id=" + id +
                 ", magazine=" + magazine +
                 ", client=" + client +

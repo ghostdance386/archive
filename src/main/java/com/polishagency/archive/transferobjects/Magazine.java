@@ -12,9 +12,9 @@ public class Magazine {
 
     @Override
     public String toString() {
-        return "Magazine{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return
+                "{id=" + id +
+                        ", name='" + name + '\'' +
+                        '}';
     }
 }

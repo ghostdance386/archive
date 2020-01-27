@@ -1,16 +1,29 @@
 package com.polishagency.archive.listimplementation;
 
+import com.polishagency.archive.transferobjects.Article;
+import com.polishagency.archive.transferobjects.Author;
+import com.polishagency.archive.transferobjects.Client;
+import com.polishagency.archive.transferobjects.Magazine;
+
+import java.time.LocalDate;
 import java.util.Random;
 
-public class RandomArticleGenerator {
+public class ArticleFactory {
 
     String[] magazineNames = {"Monitor Rynkowy", "Strefa Gospodarki", "Quality Today", "Rzecz O"};
     String[] authorNames = {"Bogdan Leszczorz", "Marcin Pawlenka", "Krzystof Kozioł", "Małgorzata Wawak"};
     String[] clientNames = {"SM Lazurowa", "INTiBS PAN", "Miasto Rzeszów", "Politechnika Gdańska"};
     double[] sizes = {0.25, 0.5, 0.75, 0.16, 0.33};
 
-    public long randomId() {
-        return new Random().nextInt(100);
+    public Article createArticle(long id) {
+        return new Article()
+                .setId(id)
+                .setMagazine(new Magazine().setId(id).setName(randomMagazine()))
+                .setClient(new Client().setId(id).setName(randomClient()))
+                .setAuthor(new Author().setId(id).setName(randomAuthor()))
+                .setSize(randomSize())
+                .setLocalDate(LocalDate.now());
+
     }
 
     public String randomMagazine() {

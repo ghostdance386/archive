@@ -2,33 +2,23 @@ package com.polishagency.archive.listimplementation;
 
 import com.polishagency.archive.ArticlesRepository;
 import com.polishagency.archive.transferobjects.Article;
-import com.polishagency.archive.transferobjects.Author;
-import com.polishagency.archive.transferobjects.Client;
-import com.polishagency.archive.transferobjects.Magazine;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ArticlesRepoListImpl implements ArticlesRepository {
 
-
     private static List<Article> articlesList = new ArrayList<>();
 
     public ArticlesRepoListImpl() {
-        RandomArticleGenerator generator = new RandomArticleGenerator();
+        ArticleFactory factory = new ArticleFactory();
         for (int i = 0; i < 40; i++) {
-            articlesList.add(i, new Article()
-                    .setId(i)
-                    .setMagazine(new Magazine().setId(i).setName(generator.randomMagazine()))
-                    .setClient(new Client().setId(i).setName(generator.randomClient()))
-                    .setAuthor(new Author().setId(i).setName(generator.randomAuthor()))
-                    .setSize(generator.randomSize())
-                    .setLocalDate(LocalDate.now()));
+            articlesList.add(factory.createArticle(i));
         }
-
     }
 
 
@@ -39,23 +29,37 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
 
     @Override
     public List<Article> getAllByClient(String clientName) {
-        return null;
+        return articlesList.stream()
+                .filter(article -> article.getClient().getName().equals(clientName))
+                .sorted(Comparator.comparing(Article::getSize).reversed()
+                        .thenComparing(Article::getLocalDate).reversed())
+                .collect(Collectors.toList());
     }
+
 
     @Override
     public List<Article> getAllByMagazine(String magazineName) {
-        return null;
+        return articlesList.stream()
+                .filter(article -> article.getMagazine().getName().equals(magazineName))
+                .sorted(Comparator.comparing(Article::getSize).reversed()
+                        .thenComparing(Article::getLocalDate).reversed())
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Article> getAllByAuthor(String authorName) {
-        return null;
+        return articlesList.stream()
+                .filter(article -> article.getAuthor().getName().equals(authorName))
+                .sorted(Comparator.comparing(Article::getSize).reversed()
+                        .thenComparing(Article::getLocalDate).reversed())
+                .collect(Collectors.toList());
     }
 
 
     @Override
     public void addArticle(Article article) {
-
+        article.setId(articlesList.size());
+        articlesList.add(article);
     }
 
 }
