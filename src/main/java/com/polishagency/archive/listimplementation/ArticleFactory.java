@@ -17,10 +17,10 @@ public class ArticleFactory {
 
     public Article createArticle(long id) {
         return new Article()
-                .setId(id)
-                .setMagazine(new Magazine().setId(id).setName(randomMagazine()))
-                .setClient(new Client().setId(id).setName(randomClient()))
-                .setAuthor(new Author().setId(id).setName(randomAuthor()))
+                .setArticleId(id)
+                .setMagazine(new Magazine().setMagazineId(id).setName(randomMagazine()))
+                .setClient(new Client().setClientId(id).setName(randomClient()))
+                .setAuthor(new Author().setAuthorId(id).setName(randomAuthor()))
                 .setSize(randomSize())
                 .setLocalDate(LocalDate.now());
 

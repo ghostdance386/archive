@@ -58,7 +58,7 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
 
     @Override
     public void addArticle(Article article) {
-        article.setId(articlesList.size());
+        article.setArticleId(articlesList.size());
         articlesList.add(article);
     }
 
