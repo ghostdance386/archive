@@ -21,14 +21,13 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
         }
     }
 
-
     @Override
-    public List<Article> getAll() {
+    public List<Article> findAll() {
         return articlesList;
     }
 
     @Override
-    public List<Article> getAllByClient(String clientName) {
+    public List<Article> getArticleByClient_Name(String clientName) {
         return articlesList.stream()
                 .filter(article -> article.getClient().getName().equals(clientName))
                 .sorted(Comparator.comparing(Article::getSize).reversed()
@@ -38,7 +37,7 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
 
 
     @Override
-    public List<Article> getAllByMagazine(String magazineName) {
+    public List<Article> getArticleByMagazine_Name(String magazineName) {
         return articlesList.stream()
                 .filter(article -> article.getMagazine().getName().equals(magazineName))
                 .sorted(Comparator.comparing(Article::getSize).reversed()
@@ -47,7 +46,7 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
     }
 
     @Override
-    public List<Article> getAllByAuthor(String authorName) {
+    public List<Article> getArticleByAuthor_Name(String authorName) {
         return articlesList.stream()
                 .filter(article -> article.getAuthor().getName().equals(authorName))
                 .sorted(Comparator.comparing(Article::getSize).reversed()
@@ -57,9 +56,9 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
 
 
     @Override
-    public void addArticle(Article article) {
+    public Article save(Article article) {
         article.setArticleId(articlesList.size());
         articlesList.add(article);
+        return article;
     }
-
 }
