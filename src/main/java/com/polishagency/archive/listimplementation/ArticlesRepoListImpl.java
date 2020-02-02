@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -60,5 +61,14 @@ public class ArticlesRepoListImpl implements ArticlesRepository {
         article.setArticleId(articlesList.size());
         articlesList.add(article);
         return article;
+    }
+
+    @Override
+    public void deleteArticleByArticleId(long articleId) {
+        Optional<Article> articleToDelete = articlesList.stream()
+                .filter(article -> article.getArticleId() == articleId)
+                .findFirst();
+        System.out.println(articleToDelete.toString());
+        articleToDelete.ifPresent(article -> articlesList.remove(article));
     }
 }

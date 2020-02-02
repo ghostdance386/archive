@@ -19,7 +19,10 @@ public interface ArticlesHibernateRepository extends JpaRepository<Article, Long
 
     List<Article> getArticleByAuthor_Name(String authorName);
 
+
     Article save(Article article);
+
+    void deleteArticleByArticleId(long articleId);
 
 
 }

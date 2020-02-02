@@ -3,6 +3,7 @@ package com.polishagency.archive;
 import com.polishagency.archive.transferobjects.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,7 +40,14 @@ public class ArticlesRestController {
     }
 
     @PostMapping("/add")
+    @Transactional
     public void addArticle(@RequestBody Article article) {
         articlesRepository.save(article);
+    }
+
+    @DeleteMapping("/delete")
+    @Transactional
+    public void deleteArticle(@RequestParam("id") long articleId) {
+        articlesRepository.deleteArticleByArticleId(articleId);
     }
 }

@@ -16,4 +16,6 @@ public interface ArticlesRepository {
 
     Article save(Article article);
 
+    void deleteArticleByArticleId(long articleId);
+
 }
