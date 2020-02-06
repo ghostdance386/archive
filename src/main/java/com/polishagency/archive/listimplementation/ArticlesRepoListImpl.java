@@ -1,7 +1,7 @@
 package com.polishagency.archive.listimplementation;
 
 import com.polishagency.archive.ArticlesRepository;
-import com.polishagency.archive.transferobjects.Article;
+import com.polishagency.archive.dao.Article;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

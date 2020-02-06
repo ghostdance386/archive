@@ -1,9 +1,9 @@
 package com.polishagency.archive.listimplementation;
 
-import com.polishagency.archive.transferobjects.Article;
-import com.polishagency.archive.transferobjects.Author;
-import com.polishagency.archive.transferobjects.Client;
-import com.polishagency.archive.transferobjects.Magazine;
+import com.polishagency.archive.dao.Article;
+import com.polishagency.archive.dao.Author;
+import com.polishagency.archive.dao.Client;
+import com.polishagency.archive.dao.Magazine;
 
 import java.time.LocalDate;
 import java.util.Random;

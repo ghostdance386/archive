@@ -1,7 +1,7 @@
 package com.polishagency.archive;
 
 
-import com.polishagency.archive.transferobjects.Article;
+import com.polishagency.archive.dao.Article;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

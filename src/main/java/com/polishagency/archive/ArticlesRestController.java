@@ -1,6 +1,6 @@
 package com.polishagency.archive;
 
-import com.polishagency.archive.transferobjects.Article;
+import com.polishagency.archive.dao.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;

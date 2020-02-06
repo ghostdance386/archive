@@ -1,6 +1,6 @@
 package com.polishagency.archive;
 
-import com.polishagency.archive.transferobjects.Article;
+import com.polishagency.archive.dao.Article;
 
 import java.util.List;
 

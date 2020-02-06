@@ -1,7 +1,7 @@
 package com.polishagency.archive.databaseimplementation;
 
 import com.polishagency.archive.ArticlesRepository;
-import com.polishagency.archive.transferobjects.Article;
+import com.polishagency.archive.dao.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.polishagency.archive.transferobjects;
+package com.polishagency.archive.dao;
 
 import lombok.Getter;
 import lombok.Setter;
