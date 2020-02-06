@@ -41,13 +41,15 @@ public class ArticlesRestController {
 
     @PostMapping("/add")
     @Transactional
-    public void addArticle(@RequestBody Article article) {
+    public Article addArticle(@RequestBody Article article) {
         articlesRepository.save(article);
+        return article;
     }
 
     @DeleteMapping("/delete")
     @Transactional
     public void deleteArticle(@RequestParam("id") long articleId) {
         articlesRepository.deleteArticleByArticleId(articleId);
+
     }
 }
