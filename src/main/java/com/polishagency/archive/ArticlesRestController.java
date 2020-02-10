@@ -15,7 +15,7 @@ public class ArticlesRestController {
     private ArticlesRepository articlesRepository;
 
     @Autowired
-    public ArticlesRestController(@Qualifier("articlesHibernateRepository") ArticlesRepository articlesRepository) {
+    public ArticlesRestController(@Qualifier("articlesRepoListImpl") ArticlesRepository articlesRepository) {
         this.articlesRepository = articlesRepository;
     }
 
