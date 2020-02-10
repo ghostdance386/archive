@@ -1,9 +1,9 @@
 # archive
 Programator course inidividual project
 
-- hibernate is set to create in application.properties
+- hibernate is set to 'create' in application.properties
 
-- articles repository has two implementations: list and db, that are injected in rest controller
+- articles repository has two implementations: list and db, that are injected in rest controller (list implementation set as default)
 
 - data.sql loads the init data to database
 
